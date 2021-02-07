@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:layout_marginLeft="12dp"
+    android:layout_marginRight="12dp"
+    >
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="Add expense"
+        android:textSize="28dp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textColor="#FFEF2314"
+        />
+
+    <EditText
+        android:id="@+id/reasonexpense"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="enter the keyword for expense"
+        android:inputType="textPersonName"
+         />
+
+    <EditText
+        android:id="@+id/expenseamount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="enter amount"
+        android:inputType="numberDecimal" />
+    <EditText
+        android:id="@+id/dateofexpense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="DD/MM/YYYY" />
+
+    <Button
+        android:id="@+id/expensebutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="save" />
+
+
+
+
+</LinearLayout>

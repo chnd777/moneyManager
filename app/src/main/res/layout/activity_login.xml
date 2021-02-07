@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/backcolor"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:paddingBottom="20dp"
+    >
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Login to continue"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="32dp"
+                android:textStyle="bold|italic" />
+
+            <EditText
+                android:id="@+id/lEmail"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="28dp"
+                android:background="@drawable/edittext"
+                android:ems="10"
+                android:hint=" Enter your email address"
+                android:inputType="textEmailAddress" />
+
+            <EditText
+                android:id="@+id/lPassword"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="20dp"
+
+                android:background="@drawable/edittext"
+                android:ems="10"
+                android:hint=" Password"
+                android:inputType="textPassword"
+                android:visibility="visible" />
+
+            <Switch
+                android:id="@+id/switch1"
+                android:layout_width="wrap_content"
+                android:layout_gravity="right"
+                android:layout_height="wrap_content"
+                android:text=" show   "
+                android:checked="false"
+                android:background="@drawable/backcolor"
+                />
+
+            <Button
+                android:id="@+id/login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginRight="100dp"
+                android:text="log in"
+
+                />
+
+            <TextView
+                android:id="@+id/forgotPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:text="forgot password? click here.."
+                android:textColor="@color/purple_700"
+                android:layout_gravity="center"
+                android:textSize="18dp"
+                android:textAlignment="center"
+                tools:ignore="OnClick" />
+
+            <TextView
+                android:id="@+id/newAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_gravity="center"
+                android:text="New here? register here.."
+                android:textColor="@color/purple_700"
+                android:textSize="18dp"
+                tools:ignore="OnClick" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/username"
+            android:title="account "
+            android:icon="@drawable/account"
+            />
+        <item
+            android:id="@+id/expenses"
+            android:title="expenses"
+            android:icon="@drawable/expense"
+            />
+        <item
+            android:id="@+id/incomes"
+            android:title="incomes"
+            android:icon="@drawable/revenue"
+            />
+        <item
+            android:id="@+id/logout"
+            android:title="logout"
+            android:icon="@drawable/logout"
+            />
+        <item
+            android:id="@+id/share"
+            android:title="share"
+            android:icon="@drawable/share"
+            />
+
+
+    </group>
+</menu>
