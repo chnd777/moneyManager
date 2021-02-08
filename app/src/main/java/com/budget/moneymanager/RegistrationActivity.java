@@ -27,11 +27,11 @@ public class RegistrationActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private ProgressDialog rDialog;
     private Switch switchr;
+    String username;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-
         mAuth= FirebaseAuth.getInstance();
         rDialog= new ProgressDialog(this);
         registration();
@@ -58,7 +58,7 @@ public class RegistrationActivity extends AppCompatActivity {
         });
         signUp.setOnClickListener(view -> {
             String rmemail = email.getText().toString();
-            String mname = name.getText().toString();
+            username = name.getText().toString();
             String rmpassword = password.getText().toString();
             String emailPattern = "[a-zA-Z0-9._-]+@[a-zA-Z0-9.]+";
             String mconfirmPassword = confirmPassword.getText().toString();
@@ -66,7 +66,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 email.setError("Invalid email address");
                 return;
             }
-            if (isEmpty(mname)) {
+            if (isEmpty(username)) {
                 name.setError("name required..");
                 return;
             }

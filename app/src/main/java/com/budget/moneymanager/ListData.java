@@ -6,9 +6,8 @@ public class ListData {
     private String lAmt;
     private String lKeyword;
     private String lDate;
-    private RecyclerView data;
     private String id;
-
+    public ListData(){ }
     public ListData(String lamt, String lkeyword, String ldate) {
         this.lAmt = lamt;
         this.lKeyword = lkeyword;
@@ -31,9 +30,6 @@ public class ListData {
     public void setlKeyword(String lKeyword) {
         this.lKeyword = lKeyword;
     }
-    public void setData(RecyclerView data) {
-        this.data = data;
-    }
     public void setlDate(String lDate) {
         this.lDate = lDate;
     }
@@ -43,7 +39,6 @@ public class ListData {
     public String getlAmt() {
         return lAmt;
     }
-    public RecyclerView getData() { return data; }
     public String getId() { return id; }
     public String getlDate() {
         return lDate;
