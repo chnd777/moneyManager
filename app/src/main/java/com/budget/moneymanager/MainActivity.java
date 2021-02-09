@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth llAuth;
     String uid;
     DatabaseReference mDataBase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,20 +70,34 @@ public class MainActivity extends AppCompatActivity {
                         .setQuery(FirebaseDatabase.getInstance().getReference("datalist").child(uid), ListData.class)
                         .build();
         adapter =new MainAdapter(options);
+
         recyclerView.setAdapter(adapter);
+
         navView.setNavigationItemSelectedListener((MenuItem item) -> {
             switch(item.getItemId()){
+                case R.id.share:
+                    Intent intentInvite = new Intent(Intent.ACTION_SEND);
+                    intentInvite.setType("text/plain");
+                    String body = "Link to your app";
+                    String subject = "Your Subject";
+                    intentInvite.putExtra(Intent.EXTRA_SUBJECT, subject);
+                    intentInvite.putExtra(Intent.EXTRA_TEXT, body);
+                    startActivity(Intent.createChooser(intentInvite, "Share using"));
+                    navDrawer.closeDrawer(Gravity.LEFT);
+                    return true;
                 case R.id.expenses:
                     startActivity(new Intent(getApplicationContext(), ExpensesActivity.class));
+                    navDrawer.closeDrawer(Gravity.LEFT);
                     return true;
                 case R.id.incomes:
                     startActivity(new Intent(getApplicationContext(), IncomeActivity.class));
+                    navDrawer.closeDrawer(Gravity.LEFT);
                     return true;
                 case R.id.logout:
                     FirebaseAuth.getInstance().signOut();
                     startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                    navDrawer.closeDrawer(Gravity.LEFT);
                     return true;
-
             }
             return true;
         });
@@ -104,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
     {
         super.onStart();
         adapter.startListening();
+
     }
     @Override
     protected void onStop()

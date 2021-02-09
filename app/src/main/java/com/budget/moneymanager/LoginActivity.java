@@ -25,7 +25,6 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth lAuth;
     private ProgressDialog lDialog;
     private Switch switch1;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
