@@ -4,16 +4,18 @@
     <group android:checkableBehavior="single">
         <item android:id="@+id/dashboard"
             android:icon="@drawable/dashboard"
-            android:title="Account"
-
+            android:title="dashboard"
+            android:iconTint="@color/common_google_signin_btn_text_dark_focused"
             />
         <item android:id="@+id/expense"
             android:icon="@drawable/expense"
             android:title="Add Expense"
+            android:iconTint="@color/common_google_signin_btn_text_dark_focused"
             />
         <item android:id="@+id/income"
             android:icon="@drawable/revenue"
             android:title="Add income"
+            android:iconTint="@color/common_google_signin_btn_text_dark_focused"
 
             />
     </group>

@@ -78,40 +78,40 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.share:
                     Intent intentInvite = new Intent(Intent.ACTION_SEND);
                     intentInvite.setType("text/plain");
-                    String body = "Link to your app";
+                    String body = "https://github.com/chnd777/moneyManager";
                     String subject = "Your Subject";
                     intentInvite.putExtra(Intent.EXTRA_SUBJECT, subject);
                     intentInvite.putExtra(Intent.EXTRA_TEXT, body);
                     startActivity(Intent.createChooser(intentInvite, "Share using"));
                     navDrawer.closeDrawer(Gravity.LEFT);
-                    return true;
+                    return false;
                 case R.id.expenses:
                     startActivity(new Intent(getApplicationContext(), ExpensesActivity.class));
                     navDrawer.closeDrawer(Gravity.LEFT);
-                    return true;
+                    return false;
                 case R.id.incomes:
                     startActivity(new Intent(getApplicationContext(), IncomeActivity.class));
                     navDrawer.closeDrawer(Gravity.LEFT);
-                    return true;
+                    return false;
                 case R.id.logout:
                     FirebaseAuth.getInstance().signOut();
                     startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                     navDrawer.closeDrawer(Gravity.LEFT);
-                    return true;
+                    return false;
             }
-            return true;
+            return false;
         });
         bottomNavView.setOnNavigationItemSelectedListener(item -> {
             switch(item.getItemId()){
                 case R.id.expense:
                     addExpense();
-                    break;
+                    return false;
                 case R.id.dashboard:
                     navDrawer.openDrawer(Gravity.LEFT);
-                    break;
+                    return false;
                 case R.id.income:
                     addIncome();
-                    break;
+                    return false;
             }
             return false;
         });

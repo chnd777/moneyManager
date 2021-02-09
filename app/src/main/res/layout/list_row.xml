@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="4dp"
     android:orientation="vertical"
-    android:background="@color/white"
+    android:background="@color/design_default_color_primary"
     app:cardCornerRadius="12dp"
     >
     <LinearLayout
