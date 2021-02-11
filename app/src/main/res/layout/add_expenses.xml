@@ -35,13 +35,27 @@
         android:layout_height="wrap_content"
         android:hint="enter amount"
         android:inputType="numberDecimal" />
-    <EditText
-        android:id="@+id/dateofexpense"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="DD/MM/YYYY" />
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/dateofexpense"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="DD/MM/YYYY"
+            android:inputType="textPersonName" />
+
+        <ImageButton
+            android:id="@+id/buttonCal"
+            android:layout_width="103dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/calender_image"
+            />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/expensebutton"
@@ -50,7 +64,14 @@
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:text="save" />
+    <CalendarView
+        android:id="@+id/expenseCalender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="#F4EFEF"
 
+        />
 
 
 

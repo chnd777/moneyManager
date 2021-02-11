@@ -9,6 +9,7 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start"
     tools:context=".MainActivity">
+
     <include layout="@layout/layout_design"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

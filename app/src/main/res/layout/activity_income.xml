@@ -5,13 +5,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".IncomeActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:id="@+id/toolbar"
+        android:background="@color/purple_700"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="start"
+            >
+
+            <ImageButton
+                android:id="@+id/back"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/back"
+                android:background="@color/purple_700"
+                />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:padding="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="25dp"
+                android:textColor="@color/white"
+                android:text=" Money Manager" />
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
 
     <TextView
         android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
+        android:layout_below="@id/toolbar"
         android:text="Revenues"
         android:textStyle="bold"
         android:textAlignment="center"

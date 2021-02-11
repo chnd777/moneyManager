@@ -1,21 +1,25 @@
 package com.budget.moneymanager;
 
-import androidx.annotation.NonNull;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.ProgressDialog;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -24,11 +28,13 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+
 
 import java.util.ArrayList;
+import java.util.*;
 
 import static android.text.TextUtils.isEmpty;
+import static android.view.View.VISIBLE;
 
 public class MainActivity extends AppCompatActivity {
     private DrawerLayout navDrawer;
@@ -45,18 +51,26 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         navDrawer=findViewById(R.id.drawer_layout);
         bottomNavView=findViewById(R.id.bottomNav);
         navView =findViewById(R.id.navigview);
+        ImageButton image;
+        image =findViewById(R.id.drawerr);
+        image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navDrawer.openDrawer(Gravity.LEFT);
+            }
+        });
 
         recyclerView= findViewById(R.id.recyclerView);
-
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation((LinearLayoutManager.VERTICAL));
         layoutManager.setReverseLayout(true);
         layoutManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(layoutManager);
-
 
         llAuth = FirebaseAuth.getInstance();
         if( llAuth.getCurrentUser() == null){
@@ -116,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
             return false;
         });
     }
+
     @Override
     protected void onStart()
     {
@@ -139,6 +154,17 @@ public class MainActivity extends AppCompatActivity {
         EditText amt=mView.findViewById(R.id.expenseamount);
         EditText dat=mView.findViewById(R.id.dateofexpense);
         Button savee= mView.findViewById(R.id.expensebutton);
+        CalendarView calenderr= mView.findViewById(R.id.expenseCalender);
+        Date date = new Date();
+        long msec =date.getTime();
+        calenderr.setMaxDate(msec);
+        calenderr.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+                // display the selected date by using a toast
+                dat.setText(dayOfMonth+"/"+(month+1)+"/"+year);
+            }
+        });
         savee.setOnClickListener(v -> {
             String re=reason.getText().toString().trim();
             String amtt = amt.getText().toString().trim();
@@ -174,6 +200,17 @@ public class MainActivity extends AppCompatActivity {
         EditText amt=mmView.findViewById(R.id.incomeamount);
         EditText dat=mmView.findViewById(R.id.dateofincome);
         Button savee= mmView.findViewById(R.id.incomebutton);
+        CalendarView calender= mmView.findViewById(R.id.incomeCalender);
+        Date date = new Date();
+        long msec =date.getTime();
+        calender.setMaxDate(msec);
+        calender.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+                // display the selected date by using a toast
+                dat.setText(dayOfMonth+"/"+(month+1)+"/"+year);
+            }
+        });
         savee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -1,10 +1,15 @@
 package com.budget.moneymanager;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,6 +26,17 @@ public class IncomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_income);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        ImageButton image;
+        image =findViewById(R.id.back);
+        image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                IncomeActivity.super.onBackPressed();
+            }
+        });
         iAuth = FirebaseAuth.getInstance();
         incomeRecyclerView = findViewById(R.id.incomeRecyclerView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
