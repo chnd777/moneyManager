@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     android:layout_marginLeft="12dp"
     android:layout_marginRight="12dp"
-    android:orientation="vertical">
-
+    android:orientation="vertical"
+    >
     <TextView
         android:id="@+id/textView5"
         android:layout_width="match_parent"
@@ -22,6 +22,7 @@
         android:id="@+id/reasonrevenue"
         android:layout_width="match_parent"
         android:layout_height="48dp"
+
         android:hint="enter the keyword"
         android:inputType="textPersonName" />
 
@@ -30,6 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="enter amount"
+
         android:inputType="numberDecimal" />
 
     <LinearLayout
@@ -68,5 +70,7 @@
         android:layout_gravity="center"
         android:background="#F4EFEF"
         />
+
+
 
 </LinearLayout>

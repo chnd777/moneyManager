@@ -9,7 +9,7 @@
             />
         <item
             android:id="@+id/incomes"
-            android:title="incomes"
+            android:title="revenues"
             android:icon="@drawable/revenue"
             />
         <item
@@ -19,10 +19,9 @@
             />
         <item
             android:id="@+id/share"
-            android:title="share"
+            android:title="share App"
             android:icon="@drawable/share"
             />
-
 
     </group>
 </menu>

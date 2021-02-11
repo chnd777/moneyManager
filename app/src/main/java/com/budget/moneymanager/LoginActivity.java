@@ -1,7 +1,11 @@
 package com.budget.moneymanager;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
@@ -28,15 +32,14 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         lAuth= FirebaseAuth.getInstance();
+
         if( lAuth.getCurrentUser() != null){
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
             return;
         }
         setContentView(R.layout.activity_login);
         lDialog= new ProgressDialog(this);
-
         loginFun();
     }
     private void loginFun(){
@@ -56,7 +59,6 @@ public class LoginActivity extends AppCompatActivity {
             else{
                 switch1.setChecked(false);
                 password.setTransformationMethod(PasswordTransformationMethod.getInstance());
-
             }
         });
         butlog.setOnClickListener(new View.OnClickListener() {
@@ -64,7 +66,6 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String sLEmail = email.getText().toString();
                 String sLPassword = password.getText().toString();
-
                 if (isEmpty(sLEmail)) {
                     email.setError("email required!..");
                     return;
@@ -87,6 +88,18 @@ public class LoginActivity extends AppCompatActivity {
                 });
             }
         });
+    }
+    public boolean isOnline() {
+        ConnectivityManager conMgr = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = conMgr.getActiveNetworkInfo();
+        if(netInfo == null || !netInfo.isConnected() || !netInfo.isAvailable()){
+            AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+            alertDialog.setTitle("Info");
+            alertDialog.setMessage("Internet not available, Cross check your internet connectivity and try again");
+            alertDialog.show();
+            return false;
+        }
+        return true;
     }
     @Override
     public void onBackPressed(){

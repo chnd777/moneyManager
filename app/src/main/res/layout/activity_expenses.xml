@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ExpensesActivity">
+    tools:context=".ExpensesActivity"
+    android:background="@drawable/backcolor">
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="55dp"
@@ -43,7 +44,7 @@
         android:text="Expenses"
         android:textStyle="bold"
         android:textAlignment="center"
-        android:textColor="#78D809"
+        android:textColor="#0611EA"
         android:textSize="40dp">
 
     </TextView>

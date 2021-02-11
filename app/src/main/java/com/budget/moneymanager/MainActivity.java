@@ -1,14 +1,11 @@
 package com.budget.moneymanager;
 
-
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -18,23 +15,16 @@ import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-
-
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-
 import java.util.ArrayList;
 import java.util.*;
-
 import static android.text.TextUtils.isEmpty;
-import static android.view.View.VISIBLE;
+
 
 public class MainActivity extends AppCompatActivity {
     private DrawerLayout navDrawer;
@@ -46,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth llAuth;
     String uid;
     DatabaseReference mDataBase;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         navDrawer=findViewById(R.id.drawer_layout);
         bottomNavView=findViewById(R.id.bottomNav);
         navView =findViewById(R.id.navigview);
+
         ImageButton image;
         image =findViewById(R.id.drawerr);
         image.setOnClickListener(new View.OnClickListener() {
@@ -136,7 +126,6 @@ public class MainActivity extends AppCompatActivity {
     {
         super.onStart();
         adapter.startListening();
-
     }
     @Override
     protected void onStop()

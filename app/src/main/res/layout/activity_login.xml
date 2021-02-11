@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:background="@drawable/backcolor"
+    android:background="@drawable/edittext"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:paddingBottom="20dp"
@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:text="Login to continue"
                 android:textAlignment="center"
-                android:textColor="@color/white"
+                android:textColor="@color/purple_500"
                 android:textSize="32dp"
                 android:textStyle="bold|italic" />
 
@@ -38,9 +38,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginTop="28dp"
-                android:background="@drawable/edittext"
+                android:background="@drawable/backcolor"
                 android:ems="10"
                 android:hint=" Enter your email address"
+                android:textAlignment="center"
                 android:inputType="textEmailAddress" />
 
             <EditText
@@ -48,8 +49,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginTop="20dp"
-
-                android:background="@drawable/edittext"
+                android:textAlignment="center"
+                android:background="@drawable/backcolor"
                 android:ems="10"
                 android:hint=" Password"
                 android:inputType="textPassword"
@@ -63,15 +64,15 @@
                 android:text=" show   "
                 android:checked="false"
                 android:background="@drawable/backcolor"
-                />
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
 
             <Button
                 android:id="@+id/login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
-                android:layout_marginLeft="100dp"
-                android:layout_marginRight="100dp"
+                android:layout_marginLeft="120dp"
+                android:layout_marginRight="120dp"
                 android:text="log in"
 
                 />
