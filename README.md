@@ -1,3 +1,3 @@
-# moneyManager
+# MoneyManager
 moneytrackerApp
-This is a simple app where you save your transations and tracking it.
+This is a simple app where you can track your transactions and manage your expenses.
