@@ -15,6 +15,8 @@ import android.widget.Toast;
 
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
 import static android.text.TextUtils.isEmpty;
 
@@ -27,7 +29,8 @@ public class RegistrationActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private ProgressDialog rDialog;
     private Switch switchr;
-    String username;
+    private String username;
+    FirebaseDatabase UserData;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,10 +89,12 @@ public class RegistrationActivity extends AppCompatActivity {
                     rDialog.dismiss();
                     Toast.makeText(getApplicationContext(),"Registration successful..",Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                    String uid= FirebaseAuth.getInstance().getCurrentUser().getUid();
+                    FirebaseDatabase.getInstance().getReference("userName").child(uid).setValue(username);
                 }
                 else{
                     rDialog.dismiss();
-                    Toast.makeText(getApplicationContext(),"Registration failed!..",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Registration failed!.."+task.getException(),Toast.LENGTH_LONG).show();
                 }
             });
         });

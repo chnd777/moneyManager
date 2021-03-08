@@ -20,7 +20,6 @@ public class ListData {
         this.lDate = ldate;
         this.id =id;
     }
-
     public void setlAmt(String lAmt) {
         this.lAmt = lAmt;
     }

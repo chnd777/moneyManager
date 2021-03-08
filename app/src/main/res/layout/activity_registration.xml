@@ -54,6 +54,7 @@
                 android:layout_marginTop="16dp"
                 android:background="@drawable/backcolor"
                 android:ems="10"
+                android:maxLength="16"
                 android:textAlignment="center"
                 android:hint=" Your Name"
                 android:inputType="textPersonName" />

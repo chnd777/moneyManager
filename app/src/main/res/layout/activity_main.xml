@@ -9,7 +9,6 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start"
     tools:context=".MainActivity">
-
     <include layout="@layout/layout_design"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
@@ -17,11 +16,22 @@
         android:layout_width="wrap_content"
         android:id="@+id/navigview"
         android:fitsSystemWindows="true"
-        android:layout_gravity="start"
         app:headerLayout="@layout/header_layout"
+        android:layout_gravity="start"
         app:menu="@menu/menufordrawer"
         android:layout_height="match_parent"
         >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/username1"
+            android:text="Hello user"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="132dp"
+            android:textColor="@color/design_default_color_primary"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            />
     </com.google.android.material.navigation.NavigationView>
 
 

@@ -48,7 +48,8 @@
 
         <ImageButton
             android:id="@+id/buttonCal"
-            android:layout_width="103dp"
+            android:layout_width="80dp"
+
             android:layout_height="match_parent"
             android:src="@drawable/calender_image"
             />
